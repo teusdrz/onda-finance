@@ -68,12 +68,14 @@ export function DashboardPage() {
         </div>
 
         <div className="animate-fade-up-card" style={{ animationDelay: "200ms" }}>
-          <Card className="h-full">
+          <Card className="h-full transition-shadow duration-200 hover:shadow-md">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">
                 Entradas
               </CardTitle>
-              <TrendingUp className="h-4 w-4 text-emerald-600" />
+              <div className="rounded-full bg-emerald-50 p-2">
+                <TrendingUp className="h-4 w-4 text-emerald-600" />
+              </div>
             </CardHeader>
             <CardContent>
               {isTransactionsLoading ? (
@@ -88,12 +90,14 @@ export function DashboardPage() {
         </div>
 
         <div className="animate-fade-up-card" style={{ animationDelay: "300ms" }}>
-          <Card className="h-full">
+          <Card className="h-full transition-shadow duration-200 hover:shadow-md">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">
                 Saídas
               </CardTitle>
-              <TrendingDown className="h-4 w-4 text-red-500" />
+              <div className="rounded-full bg-red-50 p-2">
+                <TrendingDown className="h-4 w-4 text-red-500" />
+              </div>
             </CardHeader>
             <CardContent>
               {isTransactionsLoading ? (

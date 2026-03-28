@@ -75,7 +75,9 @@ export function LoginForm({ onSuccess }: LoginFormProps) {
       </div>
 
       {error && (
-        <p className="text-sm text-destructive text-center">{error}</p>
+        <p role="alert" className="text-center text-sm text-destructive">
+          {error}
+        </p>
       )}
 
       <Button type="submit" className="w-full" disabled={isSubmitting}>

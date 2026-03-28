@@ -62,27 +62,28 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        "slide-in-left": {
-          from: { transform: "translateX(-100%)" },
-          to: { transform: "translateX(0)" },
-        },
         "fade-up": {
           from: { opacity: "0", transform: "translateY(20px)" },
           to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "loading-bar": {
+          "0%": { transform: "translateX(-100%)" },
+          "50%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(200%)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "slide-in-left": "slide-in-left 0.8s cubic-bezier(0.16, 1, 0.3, 1)",
         "fade-up": "fade-up 0.5s ease-out 0.5s both",
         "fade-up-card": "fade-up 0.4s ease-out both",
+        "loading-bar": "loading-bar 1.4s ease-in-out infinite",
       },
       transitionDuration: {
-        login: "1200ms",
+        login: "2200ms",
       },
       transitionTimingFunction: {
-        smooth: "cubic-bezier(0.4, 0, 0.2, 1)",
+        smooth: "cubic-bezier(0.65, 0, 0.35, 1)",
       },
     },
   },

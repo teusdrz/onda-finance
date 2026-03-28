@@ -15,7 +15,7 @@ export function BalanceCard({ balance, isLoading }: BalanceCardProps) {
   const [visible, setVisible] = useState(true)
 
   return (
-    <Card>
+    <Card className="transition-shadow duration-200 hover:shadow-md">
       <CardHeader className="flex flex-row items-center justify-between pb-2">
         <CardTitle className="text-sm font-medium text-muted-foreground">
           Saldo disponível
