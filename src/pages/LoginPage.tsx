@@ -6,8 +6,8 @@ import { useAuthStore } from "@/features/auth/store/auth.store"
 import { cn } from "@/lib/utils"
 
 const LOADING_DELAY = 800
-const TRANSITION_DURATION = 2200
-const NAVIGATE_DELAY = TRANSITION_DURATION + 300
+const TRANSITION_DURATION = 3500
+const NAVIGATE_DELAY = TRANSITION_DURATION + 500
 
 export function LoginPage() {
   const navigate = useNavigate()
@@ -56,8 +56,8 @@ export function LoginPage() {
       <div
         className={cn(
           "relative z-10 flex min-h-screen w-full items-center justify-center bg-white px-6 py-12 lg:w-[35%]",
-          "transition-all duration-login ease-smooth",
-          isTransitioning && "-translate-x-full opacity-0",
+          "transition-transform duration-login ease-smooth",
+          isTransitioning && "-translate-x-full",
         )}
       >
         <div className="w-full max-w-sm space-y-8">

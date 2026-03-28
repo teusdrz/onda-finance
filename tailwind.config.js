@@ -80,10 +80,10 @@ export default {
         "loading-bar": "loading-bar 1.4s ease-in-out infinite",
       },
       transitionDuration: {
-        login: "2200ms",
+        login: "3500ms",
       },
       transitionTimingFunction: {
-        smooth: "cubic-bezier(0.65, 0, 0.35, 1)",
+        smooth: "cubic-bezier(0.25, 0.1, 0.25, 1)",
       },
     },
   },
