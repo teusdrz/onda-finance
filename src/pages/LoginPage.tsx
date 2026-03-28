@@ -41,9 +41,12 @@ export function LoginPage() {
 
       <div
         className={cn(
-          "absolute inset-y-0 right-0 transition-[left] duration-login ease-smooth",
+          "absolute inset-y-0 right-0",
           isTransitioning ? "left-0" : "left-0 lg:left-[35%]",
         )}
+        style={{
+          transition: `left ${TRANSITION_DURATION}ms cubic-bezier(0.25, 0.1, 0.25, 1)`,
+        }}
       >
         <img
           src="/login-bg.jpg"
@@ -56,9 +59,11 @@ export function LoginPage() {
       <div
         className={cn(
           "relative z-10 flex min-h-screen w-full items-center justify-center bg-white px-6 py-12 lg:w-[35%]",
-          "transition-transform duration-login ease-smooth",
           isTransitioning && "-translate-x-full",
         )}
+        style={{
+          transition: `transform ${TRANSITION_DURATION}ms cubic-bezier(0.25, 0.1, 0.25, 1)`,
+        }}
       >
         <div className="w-full max-w-sm space-y-8">
           <div
