@@ -41,7 +41,7 @@ export function DashboardPage() {
   return (
     <div className="space-y-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <div>
+        <div className="animate-fade-up-card">
           <h1 className="text-2xl font-bold tracking-tight">
             {getGreeting()}, {user?.name?.split(" ")[0]}
           </h1>
@@ -49,58 +49,71 @@ export function DashboardPage() {
             Aqui esta o resumo da sua conta
           </p>
         </div>
-        <Link to="/transfer">
-          <Button className="gap-2">
-            <ArrowLeftRight className="h-4 w-4" />
-            Nova transferencia
-          </Button>
-        </Link>
+        <div className="animate-fade-up-card" style={{ animationDelay: "50ms" }}>
+          <Link to="/transfer">
+            <Button className="gap-2">
+              <ArrowLeftRight className="h-4 w-4" />
+              Nova transferencia
+            </Button>
+          </Link>
+        </div>
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <BalanceCard balance={account?.balance} isLoading={isBalanceLoading} />
+        <div className="animate-fade-up-card" style={{ animationDelay: "100ms" }}>
+          <BalanceCard
+            balance={account?.balance}
+            isLoading={isBalanceLoading}
+          />
+        </div>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Entradas
-            </CardTitle>
-            <TrendingUp className="h-4 w-4 text-emerald-600" />
-          </CardHeader>
-          <CardContent>
-            {isTransactionsLoading ? (
-              <Skeleton className="h-8 w-36" />
-            ) : (
-              <p className="text-2xl font-bold text-emerald-600">
-                + {formatCurrency(totalIncome)}
-              </p>
-            )}
-          </CardContent>
-        </Card>
+        <div className="animate-fade-up-card" style={{ animationDelay: "200ms" }}>
+          <Card className="h-full">
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
+                Entradas
+              </CardTitle>
+              <TrendingUp className="h-4 w-4 text-emerald-600" />
+            </CardHeader>
+            <CardContent>
+              {isTransactionsLoading ? (
+                <Skeleton className="h-8 w-36" />
+              ) : (
+                <p className="text-2xl font-bold text-emerald-600">
+                  + {formatCurrency(totalIncome)}
+                </p>
+              )}
+            </CardContent>
+          </Card>
+        </div>
 
-        <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <CardTitle className="text-sm font-medium text-muted-foreground">
-              Saidas
-            </CardTitle>
-            <TrendingDown className="h-4 w-4 text-red-500" />
-          </CardHeader>
-          <CardContent>
-            {isTransactionsLoading ? (
-              <Skeleton className="h-8 w-36" />
-            ) : (
-              <p className="text-2xl font-bold text-red-500">
-                - {formatCurrency(totalExpenses)}
-              </p>
-            )}
-          </CardContent>
-        </Card>
+        <div className="animate-fade-up-card" style={{ animationDelay: "300ms" }}>
+          <Card className="h-full">
+            <CardHeader className="flex flex-row items-center justify-between pb-2">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
+                Saidas
+              </CardTitle>
+              <TrendingDown className="h-4 w-4 text-red-500" />
+            </CardHeader>
+            <CardContent>
+              {isTransactionsLoading ? (
+                <Skeleton className="h-8 w-36" />
+              ) : (
+                <p className="text-2xl font-bold text-red-500">
+                  - {formatCurrency(totalExpenses)}
+                </p>
+              )}
+            </CardContent>
+          </Card>
+        </div>
       </div>
 
-      <TransactionList
-        transactions={transactions}
-        isLoading={isTransactionsLoading}
-      />
+      <div className="animate-fade-up-card" style={{ animationDelay: "400ms" }}>
+        <TransactionList
+          transactions={transactions}
+          isLoading={isTransactionsLoading}
+        />
+      </div>
     </div>
   )
 }
