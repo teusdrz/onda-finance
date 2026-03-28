@@ -18,7 +18,7 @@ export function BalanceCard({ balance, isLoading }: BalanceCardProps) {
     <Card>
       <CardHeader className="flex flex-row items-center justify-between pb-2">
         <CardTitle className="text-sm font-medium text-muted-foreground">
-          Saldo disponivel
+          Saldo disponível
         </CardTitle>
         <Button
           variant="ghost"

@@ -46,14 +46,14 @@ export function DashboardPage() {
             {getGreeting()}, {user?.name?.split(" ")[0]}
           </h1>
           <p className="text-sm text-muted-foreground">
-            Aqui esta o resumo da sua conta
+            Aqui está o resumo da sua conta
           </p>
         </div>
         <div className="animate-fade-up-card" style={{ animationDelay: "50ms" }}>
           <Link to="/transfer">
             <Button className="gap-2">
               <ArrowLeftRight className="h-4 w-4" />
-              Nova transferencia
+              Nova transferência
             </Button>
           </Link>
         </div>
@@ -91,7 +91,7 @@ export function DashboardPage() {
           <Card className="h-full">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <CardTitle className="text-sm font-medium text-muted-foreground">
-                Saidas
+                Saídas
               </CardTitle>
               <TrendingDown className="h-4 w-4 text-red-500" />
             </CardHeader>

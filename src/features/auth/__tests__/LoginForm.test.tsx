@@ -27,15 +27,15 @@ describe("LoginForm", () => {
     expect(screen.getByRole("button", { name: /entrar/i })).toBeInTheDocument()
   })
 
-  it("exibe erros de validacao ao submeter formulario vazio", async () => {
+  it("exibe erros de validação ao submeter formulário vazio", async () => {
     const user = userEvent.setup()
     renderLoginForm()
 
     await user.click(screen.getByRole("button", { name: /entrar/i }))
 
     await waitFor(() => {
-      expect(screen.getByText(/e-mail e obrigatorio/i)).toBeInTheDocument()
-      expect(screen.getByText(/senha e obrigatoria/i)).toBeInTheDocument()
+      expect(screen.getByText(/e-mail é obrigatório/i)).toBeInTheDocument()
+      expect(screen.getByText(/senha é obrigatória/i)).toBeInTheDocument()
     })
   })
 
@@ -64,13 +64,13 @@ describe("LoginForm", () => {
 
     await waitFor(
       () => {
-        expect(screen.getByText(/credenciais invalidas/i)).toBeInTheDocument()
+        expect(screen.getByText(/credenciais inválidas/i)).toBeInTheDocument()
       },
       { timeout: 3000 },
     )
   })
 
-  it("autentica com credenciais validas e atualiza o store", async () => {
+  it("autentica com credenciais válidas e atualiza o store", async () => {
     const user = userEvent.setup()
     renderLoginForm()
 

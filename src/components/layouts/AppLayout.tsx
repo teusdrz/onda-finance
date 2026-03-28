@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils"
 
 const NAV_ITEMS = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-  { to: "/transfer", label: "Transferencia", icon: ArrowLeftRight },
+  { to: "/transfer", label: "Transferência", icon: ArrowLeftRight },
 ] as const
 
 export function AppLayout() {

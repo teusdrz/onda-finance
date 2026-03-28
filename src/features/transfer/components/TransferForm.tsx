@@ -39,11 +39,11 @@ export function TransferForm() {
         amount: Number(data.amount),
         description: data.description,
       })
-      toast.success("Transferencia realizada com sucesso!")
+      toast.success("Transferência realizada com sucesso!")
       navigate("/dashboard")
     } catch (err) {
       toast.error(
-        err instanceof Error ? err.message : "Erro ao realizar transferencia",
+        err instanceof Error ? err.message : "Erro ao realizar transferência",
       )
     }
   }
@@ -51,15 +51,15 @@ export function TransferForm() {
   return (
     <Card className="max-w-lg">
       <CardHeader>
-        <CardTitle>Nova transferencia</CardTitle>
+        <CardTitle>Nova transferência</CardTitle>
         <CardDescription>
-          Preencha os dados para realizar uma transferencia
+          Preencha os dados para realizar uma transferência
         </CardDescription>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div className="space-y-2">
-            <Label htmlFor="recipient">Destinatario</Label>
+            <Label htmlFor="recipient">Destinatário</Label>
             <Input
               id="recipient"
               placeholder="Nome ou chave Pix"
@@ -90,7 +90,7 @@ export function TransferForm() {
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="description">Descricao</Label>
+            <Label htmlFor="description">Descrição</Label>
             <Input
               id="description"
               placeholder="Ex: Pagamento de aluguel"

@@ -19,7 +19,7 @@ const transactions: Transaction[] = [
   {
     id: "1",
     type: "credit",
-    description: "Salario",
+    description: "Salário",
     amount: 8500.0,
     date: "2026-03-25",
   },
@@ -33,7 +33,7 @@ const transactions: Transaction[] = [
   {
     id: "3",
     type: "credit",
-    description: "Pix recebido - Joao Silva",
+    description: "Pix recebido - João Silva",
     amount: 1200.0,
     date: "2026-03-22",
   },
@@ -61,7 +61,7 @@ const transactions: Transaction[] = [
   {
     id: "7",
     type: "debit",
-    description: "Farmacia",
+    description: "Farmácia",
     amount: 87.3,
     date: "2026-03-14",
   },
@@ -93,7 +93,7 @@ export const mockDb = {
     const newTransaction: Transaction = {
       id: String(transactions.length + 1),
       type: "debit",
-      description: description || `Transferencia para ${recipient}`,
+      description: description || `Transferência para ${recipient}`,
       amount,
       date: new Date().toISOString().split("T")[0],
       recipient,

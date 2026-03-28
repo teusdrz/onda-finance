@@ -11,7 +11,7 @@ export async function authenticate(
   const user = mockDb.findUser(email, password)
 
   if (!user) {
-    throw new Error("Credenciais invalidas")
+    throw new Error("Credenciais inválidas")
   }
 
   return {

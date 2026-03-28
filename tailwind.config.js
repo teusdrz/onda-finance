@@ -78,6 +78,12 @@ export default {
         "fade-up": "fade-up 0.5s ease-out 0.5s both",
         "fade-up-card": "fade-up 0.4s ease-out both",
       },
+      transitionDuration: {
+        login: "1200ms",
+      },
+      transitionTimingFunction: {
+        smooth: "cubic-bezier(0.4, 0, 0.2, 1)",
+      },
     },
   },
   plugins: [tailwindcssAnimate],

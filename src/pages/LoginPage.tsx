@@ -5,6 +5,9 @@ import { LoginForm } from "@/features/auth/components/LoginForm"
 import { useAuthStore } from "@/features/auth/store/auth.store"
 import { cn } from "@/lib/utils"
 
+const TRANSITION_DURATION = 1200
+const NAVIGATE_DELAY = TRANSITION_DURATION + 200
+
 export function LoginPage() {
   const navigate = useNavigate()
   const isAuthenticated = useAuthStore((state) => state.isAuthenticated)
@@ -17,7 +20,7 @@ export function LoginPage() {
   useEffect(() => {
     if (!isTransitioning) return
 
-    const timer = setTimeout(() => navigate("/dashboard"), 800)
+    const timer = setTimeout(() => navigate("/dashboard"), NAVIGATE_DELAY)
     return () => clearTimeout(timer)
   }, [isTransitioning, navigate])
 
@@ -26,13 +29,26 @@ export function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen overflow-hidden">
+    <div className="relative min-h-screen overflow-hidden">
       <div
         className={cn(
-          "flex shrink-0 flex-col items-center justify-center bg-white py-12 transition-all duration-700 ease-in-out",
-          isTransitioning
-            ? "opacity-0 lg:w-0 lg:min-w-0 lg:overflow-hidden lg:px-0"
-            : "w-full px-6 lg:w-[35%]",
+          "absolute inset-y-0 right-0 transition-[left] duration-login ease-smooth",
+          isTransitioning ? "left-0" : "left-0 lg:left-[35%]",
+        )}
+      >
+        <img
+          src="/login-bg.jpg"
+          alt=""
+          aria-hidden="true"
+          className="h-full w-full object-cover"
+        />
+      </div>
+
+      <div
+        className={cn(
+          "relative z-10 flex min-h-screen w-full items-center justify-center bg-white px-6 py-12 lg:w-[35%]",
+          "transition-transform duration-login ease-smooth",
+          isTransitioning && "-translate-x-full",
         )}
       >
         <div className="w-full max-w-sm space-y-8">
@@ -51,15 +67,6 @@ export function LoginPage() {
             Use: matheus@ondafinance.com / 123456
           </p>
         </div>
-      </div>
-
-      <div className="relative hidden flex-1 lg:block">
-        <img
-          src="/login-bg.jpg"
-          alt=""
-          aria-hidden="true"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
       </div>
     </div>
   )

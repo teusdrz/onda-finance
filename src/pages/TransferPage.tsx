@@ -9,14 +9,14 @@ export function TransferPage() {
     <div className="space-y-6">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
         <h1 className="animate-fade-up-card text-2xl font-bold tracking-tight">
-          Transferencia
+          Transferência
         </h1>
         {account && (
           <p
             className="animate-fade-up-card text-sm text-muted-foreground"
             style={{ animationDelay: "100ms" }}
           >
-            Saldo disponivel:{" "}
+            Saldo disponível:{" "}
             <span className="font-semibold text-foreground">
               {formatCurrency(account.balance)}
             </span>

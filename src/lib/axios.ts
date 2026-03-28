@@ -26,6 +26,6 @@ api.interceptors.response.use(
       useAuthStore.getState().logout()
     }
 
-    return Promise.reject(error as Error)
+    return Promise.reject(error)
   },
 )
