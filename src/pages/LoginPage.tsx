@@ -1,12 +1,5 @@
 import { Navigate } from "react-router-dom"
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
 import { LoginForm } from "@/features/auth/components/LoginForm"
 import { useAuthStore } from "@/features/auth/store/auth.store"
 
@@ -18,24 +11,33 @@ export function LoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-muted/40 px-4">
-      <Card className="w-full max-w-md">
-        <CardHeader className="text-center">
-          <CardTitle className="text-2xl font-bold text-primary">
-            Onda Finance
-          </CardTitle>
-          <CardDescription>
-            Acesse sua conta para continuar
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
+    <div className="flex min-h-screen">
+      <div className="flex w-full flex-col items-center justify-center px-6 py-12 lg:w-[40%]">
+        <div className="w-full max-w-sm space-y-8">
+          <div className="space-y-2 text-center">
+            <h1 className="text-3xl font-bold tracking-tight text-primary">
+              Onda Finance
+            </h1>
+            <p className="text-sm text-muted-foreground">
+              Acesse sua conta para continuar
+            </p>
+          </div>
+
           <LoginForm />
 
-          <p className="mt-4 text-center text-xs text-muted-foreground">
+          <p className="text-center text-xs text-muted-foreground">
             Use: matheus@ondafinance.com / 123456
           </p>
-        </CardContent>
-      </Card>
+        </div>
+      </div>
+
+      <div className="relative hidden lg:block lg:w-[60%]">
+        <img
+          src="/login-bg.jpg"
+          alt="Edificios corporativos"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      </div>
     </div>
   )
 }

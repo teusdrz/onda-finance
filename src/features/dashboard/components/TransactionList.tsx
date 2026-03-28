@@ -42,6 +42,7 @@ export function TransactionList({
         <CardTitle>Transacoes recentes</CardTitle>
       </CardHeader>
       <CardContent>
+        <div className="overflow-x-auto">
         <Table>
           <TableHeader>
             <TableRow>
@@ -81,6 +82,7 @@ export function TransactionList({
             ))}
           </TableBody>
         </Table>
+        </div>
       </CardContent>
     </Card>
   )
