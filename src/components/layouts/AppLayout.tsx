@@ -2,6 +2,7 @@ import { Link, Outlet, useLocation } from "react-router-dom"
 import { LayoutDashboard, ArrowLeftRight, LogOut } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
+import { Logo } from "@/components/Logo"
 import { Separator } from "@/components/ui/separator"
 import { useAuthStore } from "@/features/auth/store/auth.store"
 import { cn } from "@/lib/utils"
@@ -28,11 +29,8 @@ export function AppLayout() {
       <header className="sticky top-0 z-10 border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-6">
-            <Link
-              to="/dashboard"
-              className="text-xl font-bold text-primary"
-            >
-              Onda Finance
+            <Link to="/dashboard">
+              <Logo size="sm" />
             </Link>
 
             <Separator orientation="vertical" className="hidden h-6 sm:block" />

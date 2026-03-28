@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 import { Navigate, useNavigate } from "react-router-dom"
 
+import { Logo } from "@/components/Logo"
 import { LoginForm } from "@/features/auth/components/LoginForm"
 import { useAuthStore } from "@/features/auth/store/auth.store"
 import { cn } from "@/lib/utils"
@@ -68,13 +69,11 @@ export function LoginPage() {
         <div className="w-full max-w-sm space-y-8">
           <div
             className={cn(
-              "space-y-2 text-center opacity-0",
+              "flex flex-col items-center gap-3 opacity-0",
               pageReady && "animate-fade-up-card",
             )}
           >
-            <h1 className="text-3xl font-bold tracking-tight text-primary">
-              Onda Finance
-            </h1>
+            <Logo size="md" />
             <p className="text-sm text-muted-foreground">
               Acesse sua conta para continuar
             </p>
@@ -113,10 +112,8 @@ function LoadingOverlay({ visible }: { visible: boolean }) {
         visible ? "opacity-100" : "pointer-events-none opacity-0",
       )}
     >
-      <h1 className="text-4xl font-bold tracking-tight text-primary">
-        Onda Finance
-      </h1>
-      <p className="mt-2 text-sm text-muted-foreground">
+      <Logo size="lg" />
+      <p className="mt-3 text-sm text-muted-foreground">
         Preparando sua conta...
       </p>
       <div className="mt-8 flex gap-1.5">
