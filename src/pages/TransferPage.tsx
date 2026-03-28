@@ -23,8 +23,29 @@ export function TransferPage() {
           </p>
         )}
       </div>
-      <div className="animate-fade-up-card" style={{ animationDelay: "150ms" }}>
+
+      <div
+        className="animate-fade-up-card grid items-start gap-8 lg:grid-cols-2"
+        style={{ animationDelay: "150ms" }}
+      >
         <TransferForm />
+
+        <div className="hidden flex-col items-center justify-center rounded-xl border bg-muted/30 p-8 lg:flex">
+          <img
+            src="/finance-illustration.png"
+            alt=""
+            aria-hidden="true"
+            className="w-64 opacity-80"
+          />
+          <div className="mt-6 space-y-1 text-center">
+            <p className="text-sm font-medium text-foreground">
+              Transferências seguras
+            </p>
+            <p className="text-xs text-muted-foreground">
+              Envie e receba dinheiro com rapidez e segurança
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   )

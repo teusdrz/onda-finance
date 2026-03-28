@@ -49,7 +49,7 @@ export function TransferForm() {
   }
 
   return (
-    <Card className="max-w-lg transition-shadow duration-200 hover:shadow-md">
+    <Card className="transition-shadow duration-200 hover:shadow-md">
       <CardHeader>
         <CardTitle>Nova transferência</CardTitle>
         <CardDescription>
