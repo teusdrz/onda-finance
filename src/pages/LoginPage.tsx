@@ -103,6 +103,8 @@ export function LoginPage() {
 }
 
 function LoadingOverlay({ visible }: { visible: boolean }) {
+  const dots = [0, 160, 320]
+
   return (
     <div
       className={cn(
@@ -111,11 +113,20 @@ function LoadingOverlay({ visible }: { visible: boolean }) {
         visible ? "opacity-100" : "pointer-events-none opacity-0",
       )}
     >
-      <h1 className="text-3xl font-bold tracking-tight text-primary">
+      <h1 className="text-4xl font-bold tracking-tight text-primary">
         Onda Finance
       </h1>
-      <div className="mt-6 h-0.5 w-16 overflow-hidden rounded-full bg-primary/10">
-        <div className="h-full w-1/2 animate-loading-bar rounded-full bg-primary/60" />
+      <p className="mt-2 text-sm text-muted-foreground">
+        Preparando sua conta...
+      </p>
+      <div className="mt-8 flex gap-1.5">
+        {dots.map((delay) => (
+          <div
+            key={delay}
+            className="h-2 w-2 animate-bounce-dot rounded-full bg-primary"
+            style={{ animationDelay: `${delay}ms` }}
+          />
+        ))}
       </div>
     </div>
   )

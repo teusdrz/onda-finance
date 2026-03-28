@@ -1,4 +1,4 @@
-import { ArrowLeftRight, Eye, EyeOff, QrCode } from "lucide-react"
+import { ArrowLeftRight, Eye, EyeOff, QrCode, Receipt } from "lucide-react"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
@@ -62,6 +62,13 @@ export function BalanceCard({ balance, isLoading }: BalanceCardProps) {
           >
             <QrCode className="h-3.5 w-3.5" />
             Pix
+          </Button>
+          <Button
+            size="sm"
+            className="gap-1.5 border-0 bg-white/15 text-primary-foreground hover:bg-white/25"
+          >
+            <Receipt className="h-3.5 w-3.5" />
+            Extrato
           </Button>
         </div>
       </CardContent>

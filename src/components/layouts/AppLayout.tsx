@@ -16,6 +16,13 @@ export function AppLayout() {
   const user = useAuthStore((state) => state.user)
   const logout = useAuthStore((state) => state.logout)
 
+  const userInitials = user?.name
+    ?.split(" ")
+    .map((word) => word[0])
+    .join("")
+    .substring(0, 2)
+    .toUpperCase()
+
   return (
     <div className="min-h-screen bg-muted/40">
       <header className="sticky top-0 z-10 border-b bg-background">
@@ -49,7 +56,10 @@ export function AppLayout() {
             </nav>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3">
+            <div className="hidden h-8 w-8 items-center justify-center rounded-full bg-primary/10 text-xs font-semibold text-primary sm:flex">
+              {userInitials}
+            </div>
             <span className="hidden text-sm text-muted-foreground sm:inline">
               {user?.name}
             </span>

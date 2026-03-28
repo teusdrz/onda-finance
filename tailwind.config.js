@@ -67,9 +67,14 @@ export default {
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "loading-bar": {
-          "0%": { transform: "translateX(-100%)" },
-          "50%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(200%)" },
+          "0%": { transform: "translateX(-100%)", opacity: "0" },
+          "15%": { opacity: "1" },
+          "85%": { opacity: "1" },
+          "100%": { transform: "translateX(200%)", opacity: "0" },
+        },
+        "bounce-dot": {
+          "0%, 80%, 100%": { transform: "scale(0.6)", opacity: "0.4" },
+          "40%": { transform: "scale(1)", opacity: "1" },
         },
       },
       animation: {
@@ -77,7 +82,8 @@ export default {
         "accordion-up": "accordion-up 0.2s ease-out",
         "fade-up": "fade-up 0.5s ease-out 0.5s both",
         "fade-up-card": "fade-up 0.4s ease-out both",
-        "loading-bar": "loading-bar 1.4s ease-in-out infinite",
+        "loading-bar": "loading-bar 1.6s ease-in-out infinite",
+        "bounce-dot": "bounce-dot 1.4s ease-in-out infinite",
       },
       transitionDuration: {
         login: "3500ms",

@@ -2,6 +2,7 @@ import { useMemo } from "react"
 import { TrendingDown, TrendingUp } from "lucide-react"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Separator } from "@/components/ui/separator"
 import { Skeleton } from "@/components/ui/skeleton"
 import { BalanceCard } from "@/features/dashboard/components/BalanceCard"
 import { TransactionList } from "@/features/dashboard/components/TransactionList"
@@ -36,6 +37,13 @@ export function DashboardPage() {
     )
   }, [transactions])
 
+  const userInitials = user?.name
+    ?.split(" ")
+    .map((word) => word[0])
+    .join("")
+    .substring(0, 2)
+    .toUpperCase()
+
   return (
     <div className="space-y-6">
       <div className="animate-fade-up-card">
@@ -48,14 +56,20 @@ export function DashboardPage() {
       </div>
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <div className="animate-fade-up-card" style={{ animationDelay: "100ms" }}>
+        <div
+          className="animate-fade-up-card"
+          style={{ animationDelay: "100ms" }}
+        >
           <BalanceCard
             balance={account?.balance}
             isLoading={isBalanceLoading}
           />
         </div>
 
-        <div className="animate-fade-up-card" style={{ animationDelay: "200ms" }}>
+        <div
+          className="animate-fade-up-card"
+          style={{ animationDelay: "200ms" }}
+        >
           <Card className="h-full transition-shadow duration-200 hover:shadow-md">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <div>
@@ -80,7 +94,10 @@ export function DashboardPage() {
           </Card>
         </div>
 
-        <div className="animate-fade-up-card" style={{ animationDelay: "300ms" }}>
+        <div
+          className="animate-fade-up-card"
+          style={{ animationDelay: "300ms" }}
+        >
           <Card className="h-full transition-shadow duration-200 hover:shadow-md">
             <CardHeader className="flex flex-row items-center justify-between pb-2">
               <div>
@@ -106,11 +123,75 @@ export function DashboardPage() {
         </div>
       </div>
 
-      <div className="animate-fade-up-card" style={{ animationDelay: "400ms" }}>
-        <TransactionList
-          transactions={transactions}
-          isLoading={isTransactionsLoading}
-        />
+      <div className="grid gap-4 lg:grid-cols-3">
+        <div
+          className="animate-fade-up-card lg:col-span-2"
+          style={{ animationDelay: "400ms" }}
+        >
+          <TransactionList
+            transactions={transactions}
+            isLoading={isTransactionsLoading}
+          />
+        </div>
+
+        <div
+          className="animate-fade-up-card"
+          style={{ animationDelay: "500ms" }}
+        >
+          <Card className="h-fit">
+            <CardHeader className="pb-3">
+              <CardTitle className="text-sm font-medium text-muted-foreground">
+                Minha conta
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-semibold text-primary">
+                  {userInitials}
+                </div>
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-medium">{user?.name}</p>
+                  <p className="truncate text-xs text-muted-foreground">
+                    {user?.email}
+                  </p>
+                </div>
+              </div>
+
+              <Separator />
+
+              <div className="space-y-3 text-sm">
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Tipo</span>
+                  <span className="font-medium">Conta corrente</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Transações</span>
+                  <span className="font-medium">
+                    {transactions?.length ?? 0}
+                  </span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-muted-foreground">Status</span>
+                  <span className="inline-flex items-center gap-1 font-medium text-emerald-600">
+                    <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                    Ativa
+                  </span>
+                </div>
+              </div>
+
+              <Separator />
+
+              <div className="flex justify-center pt-1">
+                <img
+                  src="/finance-illustration.png"
+                  alt=""
+                  aria-hidden="true"
+                  className="w-36 opacity-70"
+                />
+              </div>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   )
