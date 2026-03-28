@@ -11,7 +11,11 @@ import { loginSchema, type LoginFormData } from "../schemas/login.schema"
 import { authenticate } from "../services/auth.service"
 import { useAuthStore } from "../store/auth.store"
 
-export function LoginForm() {
+interface LoginFormProps {
+  onSuccess?: () => void
+}
+
+export function LoginForm({ onSuccess }: LoginFormProps) {
   const navigate = useNavigate()
   const login = useAuthStore((state) => state.login)
   const [error, setError] = useState("")
@@ -29,7 +33,12 @@ export function LoginForm() {
       setError("")
       const response = await authenticate(data.email, data.password)
       login(response.user, response.token)
-      navigate("/dashboard")
+
+      if (onSuccess) {
+        onSuccess()
+      } else {
+        navigate("/dashboard")
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erro ao fazer login")
     }
